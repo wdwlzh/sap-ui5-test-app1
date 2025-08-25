@@ -74,11 +74,31 @@
 					"name": "main",
 					"target": "main"
 				}
+				,
+				{
+					"pattern": "dashboard",
+					"name": "dashboard",
+					"target": "dashboard"
+				},
+				{
+					"pattern": "wizard",
+					"name": "wizard",
+					"target": "wizard"
+				}
 			],
 			"targets": {
 				"main": {
 					"viewId": "main",
 					"viewName": "Main"
+				}
+				,
+				"dashboard": {
+					"viewId": "dashboard",
+					"viewName": "Dashboard"
+				},
+				"wizard": {
+					"viewId": "wizard",
+					"viewName": "Wizard"
 				}
 			}
 		}

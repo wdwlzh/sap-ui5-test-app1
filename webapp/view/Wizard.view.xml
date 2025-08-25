@@ -1,0 +1,62 @@
+<mvc:View controllerName="com.john.ui5.ts.app1.controller.Wizard"
+		displayBlock="true"
+		xmlns="sap.m"
+		xmlns:mvc="sap.ui.core.mvc"
+		xmlns:core="sap.ui.core">
+
+	<Page id="wizardPage" title="{i18n>wizardTitle}">
+		<content>
+			<VBox class="sapUiMediumMargin">
+				<!-- Custom Progress Indicator -->
+				<HBox class="sapUiMediumMarginBottom" justifyContent="Center">
+					<VBox alignItems="Center" class="sapUiSmallMarginEnd">
+						<core:Icon src="sap-icon://accept" color="{= ${/currentStep} >= 1 ? 'Positive' : 'Default'}" size="2rem" />
+						<Text text="1" class="sapUiTinyMarginTop" />
+						<Text text="{i18n>stepAckTitle}" class="sapUiTinyMarginTop" />
+					</VBox>
+					<core:Icon src="sap-icon://process" color="{= ${/currentStep} >= 2 ? 'Positive' : 'Default'}" class="sapUiMediumMarginTop" />
+					<VBox alignItems="Center" class="sapUiSmallMarginStart sapUiSmallMarginEnd" visible="{= ${/currentStep} >= 2}">
+						<core:Icon src="sap-icon://accept" color="{= ${/currentStep} >= 2 ? 'Positive' : 'Default'}" size="2rem" />
+						<Text text="2" class="sapUiTinyMarginTop" />
+						<Text text="{i18n>stepCreateTitle}" class="sapUiTinyMarginTop" />
+					</VBox>
+					<core:Icon src="sap-icon://process" color="{= ${/currentStep} >= 3 ? 'Positive' : 'Default'}" class="sapUiMediumMarginTop" visible="{= ${/currentStep} >= 2}" />
+					<VBox alignItems="Center" class="sapUiSmallMarginStart" visible="{= ${/currentStep} >= 3}">
+						<core:Icon src="sap-icon://accept" color="{= ${/currentStep} >= 3 ? 'Positive' : 'Default'}" size="2rem" />
+						<Text text="3" class="sapUiTinyMarginTop" />
+						<Text text="{i18n>stepReviewTitle}" class="sapUiTinyMarginTop" />
+					</VBox>
+				</HBox>
+
+				<!-- Step Content Container -->
+				<Panel class="sapUiMediumMargin">
+					<!-- Step 1: Acknowledgement -->
+					<VBox visible="{= ${/currentStep} === 1}">
+						<Title text="{i18n>stepAckTitle}" class="sapUiMediumMarginBottom" />
+						<Text text="{i18n>ackText}" class="sapUiMediumMarginBottom" />
+						<CheckBox id="ackCheckbox" text="{i18n>ackCheckText}" select="onAckToggle" />
+					</VBox>
+
+					<!-- Step 2: Order Creation -->
+					<VBox visible="{= ${/currentStep} === 2}">
+						<Title text="{i18n>stepCreateTitle}" class="sapUiMediumMarginBottom" />
+						<Input id="orderName" placeholder="{i18n>orderNamePlaceholder}" class="sapUiMediumMarginBottom" />
+						<Input id="orderQty" type="Number" placeholder="{i18n>orderQtyPlaceholder}" class="sapUiMediumMarginBottom" />
+						<Button text="{i18n>nextBtn}" type="Emphasized" press="onNextFromCreate" />
+					</VBox>
+
+					<!-- Step 3: Review -->
+					<VBox visible="{= ${/currentStep} === 3}">
+						<Title text="{i18n>stepReviewTitle}" class="sapUiMediumMarginBottom" />
+						<Text id="reviewText" class="sapUiMediumMarginBottom" />
+						<HBox>
+							<Button text="{i18n>submitBtn}" type="Emphasized" press="onSubmit" class="sapUiTinyMarginEnd" />
+							<Button text="{i18n>cancelBtn}" press="onCancel" />
+						</HBox>
+					</VBox>
+				</Panel>
+			</VBox>
+		</content>
+	</Page>
+
+</mvc:View>

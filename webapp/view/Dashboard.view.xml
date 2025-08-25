@@ -1,0 +1,15 @@
+<mvc:View controllerName="com.john.ui5.ts.app1.controller.Dashboard"
+		displayBlock="true"
+		xmlns="sap.m"
+		xmlns:mvc="sap.ui.core.mvc">
+
+	<Page id="dashboardPage" title="{i18n>dashboardTitle}">
+		<content>
+			<VBox class="sapUiSmallMargin">
+				<Text text="{i18n>dashboardWelcome}" />
+				<Button id="openWizard" text="{i18n>openWizardBtn}" type="Emphasized" press="onOpenWizard" />
+			</VBox>
+		</content>
+	</Page>
+
+</mvc:View>

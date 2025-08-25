@@ -30,6 +30,12 @@ Execute the following command to run the app locally for development in watch mo
 npm start
 ```
 
+## ================ John Comments ======================================= ##
+John comments: 
+use the following URL to visit the Dashboard page:
+http://localhost:8080/index.html#/dashboard
+## ================ John Comments ======================================= ##
+
 As shown in the terminal after executing this command, the app is then running on http://localhost:8080/index.html. A browser window with this URL should automatically open.
 
 (When using yarn, do `yarn start` instead.)
